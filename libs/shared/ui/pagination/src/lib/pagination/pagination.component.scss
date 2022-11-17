@@ -1,0 +1,25 @@
+.pagination {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 1rem;
+  padding-bottom: 3rem;
+  &__button {
+    text-transform: uppercase;
+    text-decoration: underline;
+    color: var(--palette-text-primary);
+    cursor: pointer;
+  }
+
+  .dropdown {
+    .btn {
+      border: 1px solid;
+      background-color: #fff;
+    }
+    .dropdown-menu {
+      max-height: 150px;
+      height: auto;
+      overflow-y: auto;
+    }
+  }
+}

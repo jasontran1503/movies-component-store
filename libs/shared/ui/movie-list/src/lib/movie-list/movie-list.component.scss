@@ -1,0 +1,24 @@
+.movies {
+  .header {
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    &__main {
+      color: var(--palette-text-primary);
+      font-size: 30px;
+      margin: 0;
+    }
+    &__sub {
+      color: var(--palette-text-primary);
+      font-size: 16px;
+      opacity: 0.6;
+    }
+  }
+}
+
+.empty {
+  color: var(--palette-text-primary);
+  font-size: 30px;
+  .fa {
+    margin-left: 10px;
+  }
+}

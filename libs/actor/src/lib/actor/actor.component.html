@@ -1,0 +1,42 @@
+<ng-container *ngIf="vm$ | async as vm">
+  <ng-container *ngIf="vm.actor">
+    <div class="actor">
+      <div class="actor__image">
+        <img src="https://image.tmdb.org/t/p/w780/{{ vm.actor.profile_path }}" alt="" />
+      </div>
+      <div class="actor__bio">
+        <div class="actor__bio-info">
+          <h1>{{ vm.actor.name }}</h1>
+          <h2>{{ vm.actor.birthday }}</h2>
+        </div>
+        <div class="actor__bio-content">
+          <h2>THE BIOGRAPHY</h2>
+          <p>{{ vm.actor.biography ? vm.actor.biography : 'There is no synopsis available...' }}</p>
+        </div>
+        <div class="actor__bio-button">
+          <a
+            href="https://www.imdb.com/name/{{ vm.actor.imdb_id }}"
+            target="_blank"
+            class="button imdb"
+            >IMDB<i class="fa fa-film" aria-hidden="true"></i
+          ></a>
+          <a class="button back" (click)="back()"
+            ><i class="fa fa-arrow-left" aria-hidden="true"></i>Back</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <nx-the-movies-movie-list
+      *ngIf="vm.movieResponse"
+      [header]="{ main: vm.actor.name, sub: 'movies' }"
+      [movieResponse]="vm.movieResponse"
+      [status]="vm.status"
+      (changePage)="onChangePage($event)"
+    >
+      <nx-the-movies-select-movie-sort-by
+        (sortBy)="sortBy($event)"
+      ></nx-the-movies-select-movie-sort-by>
+    </nx-the-movies-movie-list>
+  </ng-container>
+</ng-container>

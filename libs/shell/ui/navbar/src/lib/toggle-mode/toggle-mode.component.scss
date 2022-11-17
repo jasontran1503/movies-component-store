@@ -1,0 +1,35 @@
+.toggle {
+  margin: 0 15px;
+  display: flex;
+  align-items: center;
+  .fa {
+    font-size: 1.25rem;
+  }
+  .fa-toggle-on {
+    margin: 0 5px;
+    color: var(--palette-icon);
+    cursor: pointer;
+    font-size: 30px;
+  }
+  .fa-toggle-off {
+    margin: 0 5px;
+    color: var(--palette-icon);
+    cursor: pointer;
+    font-size: 30px;
+  }
+  .fa-sun-o {
+    color: #ffb74d;
+  }
+  .fa-moon-o {
+    color: var(--palette-text-primary);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .toggle {
+    margin: 0 5px;
+    .fa {
+      font-size: 0.875rem;
+    }
+  }
+}

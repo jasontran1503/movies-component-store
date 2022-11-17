@@ -1,0 +1,45 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@nx-the-movies/actor": ["libs/actor/src/index.ts"],
+      "@nx-the-movies/home": ["libs/home/src/index.ts"],
+      "@nx-the-movies/movie-detail/feature/movie-detail": [
+        "libs/movie-detail/feature/movie-detail/src/index.ts"
+      ],
+      "@nx-the-movies/movie-detail/ui/buttons": ["libs/movie-detail/ui/buttons/src/index.ts"],
+      "@nx-the-movies/movie-detail/ui/cast-slider": [
+        "libs/movie-detail/ui/cast-slider/src/index.ts"
+      ],
+      "@nx-the-movies/shared/common": ["libs/shared/common/src/index.ts"],
+      "@nx-the-movies/shared/data-access/apis": ["libs/shared/data-access/apis/src/index.ts"],
+      "@nx-the-movies/shared/data-access/models": ["libs/shared/data-access/models/src/index.ts"],
+      "@nx-the-movies/shared/ui/loading": ["libs/shared/ui/loading/src/index.ts"],
+      "@nx-the-movies/shared/ui/movie-item": ["libs/shared/ui/movie-item/src/index.ts"],
+      "@nx-the-movies/shared/ui/movie-list": ["libs/shared/ui/movie-list/src/index.ts"],
+      "@nx-the-movies/shared/ui/pagination": ["libs/shared/ui/pagination/src/index.ts"],
+      "@nx-the-movies/shared/ui/select-movie-sort-by": [
+        "libs/shared/ui/select-movie-sort-by/src/index.ts"
+      ],
+      "@nx-the-movies/shared/ui/star-rating": ["libs/shared/ui/star-rating/src/index.ts"],
+      "@nx-the-movies/shell/feature": ["libs/shell/feature/src/index.ts"],
+      "@nx-the-movies/shell/ui/layout": ["libs/shell/ui/layout/src/index.ts"],
+      "@nx-the-movies/shell/ui/navbar": ["libs/shell/ui/navbar/src/index.ts"],
+      "@nx-the-movies/shell/ui/side-bar": ["libs/shell/ui/side-bar/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

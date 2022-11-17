@@ -1,0 +1,22 @@
+<div (click)="onCloseSidebar($event)">
+  <div class="navbar">
+    <i
+      class="fa fa-bars"
+      aria-hidden="true"
+      *ngIf="isShowHamburger"
+      (click)="onShowSidebar()"
+      #hamburger
+    ></i>
+    <div class="navbar__container">
+      <nx-the-movies-search></nx-the-movies-search>
+      <nx-the-movies-toggle-mode></nx-the-movies-toggle-mode>
+      <div class="navbar__container-user">
+        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

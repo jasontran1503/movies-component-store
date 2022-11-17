@@ -1,0 +1,15 @@
+<div class="movies-item" [routerLink]="['/movie/detail', movie.id]">
+  <img
+    *ngIf="movie.poster_path; else defaultImage"
+    class="movies-item__img"
+    src="https://image.tmdb.org/t/p/w300/{{ movie.poster_path }}"
+    alt=""
+  />
+  <ng-template #defaultImage>
+    <img class="movies-item__img" src="assets/images/default-image.jpg" alt="" />
+  </ng-template>
+  <div class="movies-item__detail">
+    <h6 class="name">{{ movie.title }}</h6>
+    <nx-the-movies-star-rating [rating]="movie.vote_average"></nx-the-movies-star-rating>
+  </div>
+</div>

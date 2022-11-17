@@ -1,0 +1,26 @@
+<div class="pagination" *ngIf="totalPages > 1">
+  <div>
+    <h6 class="pagination__button" *ngIf="currentPage > 1" (click)="previous()">previous</h6>
+  </div>
+
+  <div class="dropdown">
+    <button
+      class="btn dropdown-toggle"
+      type="button"
+      id="dropdownPage"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      {{ currentPage }}
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownPage">
+      <li *ngFor="let page of pages" (click)="setPage(page)">
+        <a class="dropdown-item">{{ page }}</a>
+      </li>
+    </ul>
+  </div>
+
+  <div>
+    <h6 class="pagination__button" *ngIf="currentPage < totalPages" (click)="next()">next</h6>
+  </div>
+</div>

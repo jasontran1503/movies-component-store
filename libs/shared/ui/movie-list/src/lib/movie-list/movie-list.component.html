@@ -1,0 +1,41 @@
+<div class="movies" #moviePage>
+  <div class="header">
+    <h1 class="header__main">{{ header.main }}</h1>
+    <h2 class="header__sub">{{ header.sub }}</h2>
+  </div>
+  <ng-container *ngIf="status !== 'error'; else errorTpl">
+    <ng-content></ng-content>
+
+    <ng-container *ngIf="status === 'success'; else loading">
+      <ng-container *ngIf="movieResponse">
+        <ng-container *ngIf="movieResponse.results.length > 0; else noData">
+          <div class="row">
+            <nx-the-movies-movie-item
+              class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-6"
+              *ngFor="let movie of movieResponse.results"
+              [movie]="movie"
+            ></nx-the-movies-movie-item>
+          </div>
+
+          <nx-the-movies-pagination
+            [currentPage]="movieResponse.page"
+            [totalPages]="movieResponse.total_pages"
+            (changePage)="onChangePage($event)"
+          ></nx-the-movies-pagination>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+
+  <ng-template #loading>
+    <nx-the-movies-loading></nx-the-movies-loading>
+  </ng-template>
+</div>
+
+<ng-template #noData>
+  <div class="empty">No results<i class="fa fa-frown-o" aria-hidden="true"></i></div>
+</ng-template>
+
+<ng-template #errorTpl>
+  <div class="empty">Something wrong<i class="fa fa-frown-o" aria-hidden="true"></i></div>
+</ng-template>

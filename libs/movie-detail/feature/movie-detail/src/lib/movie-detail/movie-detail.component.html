@@ -1,0 +1,59 @@
+<ng-container *ngIf="vm$ | async as vm">
+  <div class="movie" *ngIf="vm.movieDetail">
+    <div class="movie__image">
+      <img
+        *ngIf="vm.movieDetail.poster_path; else defaultImage"
+        class="movies-item__img"
+        src="https://image.tmdb.org/t/p/w300/{{ vm.movieDetail.poster_path }}"
+        alt=""
+      />
+      <ng-template #defaultImage>
+        <img class="movies-item__img" src="assets/images/default-image.jpg" alt="" />
+      </ng-template>
+    </div>
+    <div class="movie__bio">
+      <div class="movie__bio-info">
+        <h1>{{ vm.movieDetail.title }}</h1>
+        <h2>{{ vm.movieDetail.tagline }}</h2>
+      </div>
+      <div class="movie__bio-rate">
+        <nx-the-movies-star-rating
+          [rating]="vm.movieDetail.vote_average"
+          [showScore]="true"
+        ></nx-the-movies-star-rating>
+        <h6>ENGLISH / {{ vm.movieDetail.runtime }} MIN. / {{ vm.movieDetail.release_date }}</h6>
+      </div>
+      <div class="movie__bio-genres">
+        <h6>The genres</h6>
+        <div class="d-flex flex-wrap">
+          <div
+            class="genres"
+            *ngFor="let genre of vm.movieDetail.genres"
+            [routerLink]="['/list']"
+            [queryParams]="{ genre: genre.name, id: genre.id }"
+          >
+            <i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+            <span>{{ genre.name }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="movie__bio-content">
+        <h2>THE SYNOPSIS</h2>
+        <p>{{ vm.movieDetail.overview || 'There is no synopsis available...' }}</p>
+      </div>
+      <nx-the-movies-buttons
+        class="movie__bio-button"
+        [movieDetail]="vm.movieDetail"
+      ></nx-the-movies-buttons>
+    </div>
+  </div>
+
+  <nx-the-movies-movie-list
+    *ngIf="vm.movieResponse"
+    [header]="{ main: 'RECOMMENDED', sub: 'movies' }"
+    [movieResponse]="vm.movieResponse"
+    [status]="vm.status"
+    (changePage)="onChangePage($event)"
+  >
+  </nx-the-movies-movie-list>
+</ng-container>

@@ -1,0 +1,7 @@
+@import 'libs/shared/styles/mode.scss';
+// @import 'libs/shared/styles/typography.scss';
+@import 'libs/shared/styles/variables/_font-size.scss';
+
+body {
+  background-color: var(--palette-background) !important;
+}

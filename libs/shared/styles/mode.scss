@@ -1,0 +1,19 @@
+body.light {
+  --palette-background: #fafafa;
+  --palette-icon: #80002c;
+  --palette-icon-border: #b80040;
+  --palette-user-hover: #f6edf0;
+  --palette-text-primary: #000;
+  --palette-text-side-bar: #0e8071;
+  --palette-background-paper: #fff;
+}
+
+body.dark {
+  --palette-background: #424242;
+  --palette-icon: #b2164d;
+  --palette-icon-border: #ff206e;
+  --palette-user-hover: #3b3034;
+  --palette-text-primary: #fff;
+  --palette-text-side-bar: #fff;
+  --palette-background-paper: #424242;
+}

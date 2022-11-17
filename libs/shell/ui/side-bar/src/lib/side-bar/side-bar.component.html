@@ -1,0 +1,37 @@
+<div class="side-bar">
+  <img class="side-bar__logo" src="assets/images/movies-logo.svg" alt="" />
+  <div class="side-bar__nav">
+    <div class="nav-list">
+      <h3>Discover</h3>
+      <div
+        *ngFor="let category of categories"
+        class="nav-item"
+        [routerLink]="['/list']"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        [queryParams]="{ category: category.name }"
+        (click)="onCloseSidebar()"
+      >
+        <i class="fa fa-{{ category.icon }}" aria-hidden="true"></i>
+        <span>{{ category.name }}</span>
+      </div>
+    </div>
+
+    <div class="nav-list">
+      <h3>GENRES</h3>
+      <div
+        *ngFor="let genre of genres$ | async"
+        class="nav-item"
+        [routerLink]="['/list']"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        [queryParams]="{ genre: genre.name.toLowerCase(), id: genre.id }"
+        (click)="onCloseSidebar()"
+      >
+        <i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+        <span>{{ genre.name }}</span>
+      </div>
+    </div>
+  </div>
+  <img class="side-bar__footer" src="assets/images/tmdb-logo.svg" alt="" />
+</div>
